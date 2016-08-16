@@ -1,0 +1,21 @@
+{
+  "name": "pressbooks/slate",
+  "require": {
+    "vlucas/phpdotenv": "^2.0.1",
+    "oscarotero/env": "^1.0"
+  },
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Book Oven Inc.",
+      "email": "code@pressbooks.com"
+    }
+  ],
+  "extra": {
+    "installer-paths": {
+      "wordpress/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  }
+}
