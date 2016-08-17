@@ -13,7 +13,13 @@ Env::init();
 $dotenv = new Dotenv\Dotenv($root_dir);
 if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
-    $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL', 'DOMAIN_CURRENT_SITE']);
+    $dotenv->required([
+        'DB_NAME',
+        'DB_USER',
+        'DB_PASSWORD',
+        'DOMAIN_CURRENT_SITE',
+        'WP_CACHE_KEY_SALT'
+    ]);
 }
 /**
  * Set up our global environment constant and load its config first
@@ -57,50 +63,50 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
 define('FORCE_SSL_ADMIN', true);
-define('WP_DEFAULT_THEME', 'pressbooks-book');
+define('WP_DEFAULT_THEME', env('WP_DEFAULT_THEME') ?: 'pressbooks-book');
 /**
- * Pressbooks
+ * Pressbooks Settings
  */
 define('PB_PRINCE_COMMAND', '/usr/bin/prince');
 define('PB_KINDLEGEN_COMMAND', '/opt/kindlegen/kindlegen');
 define('PB_EPUBCHECK_COMMAND', '/usr/bin/java -jar /opt/epubcheck-3.0.1/epubcheck-3.0.1.jar' );
 define('PB_XMLLINT_COMMAND', '/usr/bin/xmllint');
 /**
- * Postmark
+ * Postmark API
  */
 if ( env('POSTMARK_API_KEY') && env('POSTMARK_SENDER_ADDRESS') ) {
     define('POSTMARK_API_KEY', env('POSTMARK_API_KEY'));
     define('POSTMARK_SENDER_ADDRESS', env('POSTMARK_SENDER_ADDRESS'));
 }
 /**
- * Stripe
+ * Stripe API
  */
-if ( env('STRIPE_SK') && env('STRIPE_PK') ) {
-    $GLOBALS['PB_SECRET_SAUCE']['STRIPE_SK'] = env('STRIPE_SK');
-    $GLOBALS['PB_SECRET_SAUCE']['STRIPE_PK'] = env('STRIPE_PK');
+if (env('STRIPE_SK') && env('STRIPE_PK')) {
+    define('STRIPE_SK', env('STRIPE_SK'));
+    define('STRIPE_PK', env('STRIPE_PK'));
+    $GLOBALS['PB_SECRET_SAUCE']['STRIPE_SK'] = env('STRIPE_SK'); // Fallback until pressbooks-vip @4.0
+    $GLOBALS['PB_SECRET_SAUCE']['STRIPE_PK'] = env('STRIPE_PK'); // Fallback until pressbooks-vip @4.0
 }
 /**
  * Memcached
  */
 global $memcached_servers;
 $memcached_servers = array(
-    'default' => array(
-        '127.0.0.1:11211',
-    )
+    'default' => ['127.0.0.1:11211']
 );
-define( 'WP_CACHE', true );
-define( 'WP_CACHE_KEY_SALT', env('WP_CACHE_KEY_SALT') );
+define('WP_CACHE', true);
+define('WP_CACHE_KEY_SALT', env('WP_CACHE_KEY_SALT'));
 /**
  * Multisite
  */
-define( 'WP_ALLOW_MULTISITE', true );
-define( 'MULTISITE', true );
-define( 'SUBDOMAIN_INSTALL', false );
+define('WP_ALLOW_MULTISITE', true);
+define('MULTISITE', true);
+define('SUBDOMAIN_INSTALL', env('SUBDOMAIN_INSTALL') ?: false);
 $base = '/';
-define( 'DOMAIN_CURRENT_SITE', env('DOMAIN_CURRENT_SITE') );
-define( 'PATH_CURRENT_SITE', '/' );
-define( 'SITE_ID_CURRENT_SITE', 1 );
-define( 'BLOG_ID_CURRENT_SITE', 1 );/* That's all, stop editing! Happy blogging. */
+define('DOMAIN_CURRENT_SITE', env('DOMAIN_CURRENT_SITE') );
+define('PATH_CURRENT_SITE', '/');
+define('SITE_ID_CURRENT_SITE', 1);
+define('BLOG_ID_CURRENT_SITE', 1);
 /**
  * Bootstrap WordPress
  */
