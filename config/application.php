@@ -94,6 +94,18 @@ if (env('STRIPE_SK') && env('STRIPE_PK')) {
     $GLOBALS['PB_SECRET_SAUCE']['STRIPE_PK'] = env('STRIPE_PK'); // Fallback until pressbooks-vip @4.0
 }
 /**
+ * WordPress.com API
+ */
+if (env('WPCOM_API_KEY')) {
+    define('WPCOM_API_KEY', env('WPCOM_API_KEY'));
+}
+/**
+ * WPMU DEV API
+ */
+if (env('WPMUDEV_APIKEY')) {
+    define('WPMUDEV_APIKEY', env('WPMUDEV_APIKEY'));
+}
+/**
  * Memcached
  */
 global $memcached_servers;
