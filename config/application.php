@@ -36,7 +36,7 @@ if (file_exists($env_config)) {
 define('WP_HOME', env('WP_HOME'));
 define('WP_SITEURL', env('WP_SITEURL'));
 /**
- * DB settings
+ * DB Settings
  */
 define('DB_NAME', env('DB_NAME'));
 define('DB_USER', env('DB_USER'));
@@ -71,6 +71,12 @@ define('PB_PRINCE_COMMAND', '/usr/bin/prince');
 define('PB_KINDLEGEN_COMMAND', '/opt/kindlegen/kindlegen');
 define('PB_EPUBCHECK_COMMAND', '/usr/bin/java -jar /opt/epubcheck-3.0.1/epubcheck-3.0.1.jar' );
 define('PB_XMLLINT_COMMAND', '/usr/bin/xmllint');
+if ( file_exists( $webroot_dir . '/wp-content/themes/private-themes.php' ) ) {
+    require_once( $webroot_dir . '/wp-content/themes/private-themes.php' );
+} else {
+    $privatethemes = [];
+}
+$GLOBALS['PB_SECRET_SAUCE']['BOOK_THEMES'] = $privatethemes;
 /**
  * Postmark API
  */
