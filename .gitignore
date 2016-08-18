@@ -1,7 +1,17 @@
 # Application
 wordpress/*
+wp-config.php
+
+# System
+logs/*
+.bash*
+.cache/*
+.config/*
+.local/*
+.viminfo
 
 # WP-CLI
+.wp-cli/*
 *.sql
 
 # Dotenv
