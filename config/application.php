@@ -63,7 +63,9 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
 define('FORCE_SSL_ADMIN', true);
-define('WP_DEFAULT_THEME', env('WP_DEFAULT_THEME') ?: 'pressbooks-book');
+if ( env('WP_DEFAULT_THEME') ) {
+    define('WP_DEFAULT_THEME', env('WP_DEFAULT_THEME'));
+}
 /**
  * Pressbooks Settings
  */
