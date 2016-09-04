@@ -90,8 +90,6 @@ if ( env('POSTMARK_API_KEY') && env('POSTMARK_SENDER_ADDRESS') ) {
 if (env('STRIPE_SK') && env('STRIPE_PK')) {
     define('STRIPE_SK', env('STRIPE_SK'));
     define('STRIPE_PK', env('STRIPE_PK'));
-    $GLOBALS['PB_SECRET_SAUCE']['STRIPE_SK'] = env('STRIPE_SK'); // Fallback until pressbooks-vip @4.0
-    $GLOBALS['PB_SECRET_SAUCE']['STRIPE_PK'] = env('STRIPE_PK'); // Fallback until pressbooks-vip @4.0
 }
 /**
  * WordPress.com API
@@ -114,17 +112,6 @@ $memcached_servers = array(
 );
 define('WP_CACHE', true);
 define('WP_CACHE_KEY_SALT', env('WP_CACHE_KEY_SALT'));
-/**
- * Multisite
- */
-define('WP_ALLOW_MULTISITE', true);
-define('MULTISITE', true);
-define('SUBDOMAIN_INSTALL', env('SUBDOMAIN_INSTALL') ?: false);
-$base = '/';
-define('DOMAIN_CURRENT_SITE', env('DOMAIN_CURRENT_SITE') );
-define('PATH_CURRENT_SITE', '/');
-define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1);
 /**
  * Bootstrap WordPress
  */
