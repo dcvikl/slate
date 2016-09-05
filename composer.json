@@ -18,7 +18,8 @@
     "oscarotero/env": "^1.0",
     "wpackagist-plugin/akismet": "3.1.11",
     "wpackagist-plugin/batcache": "1.4",
-    "wpackagist-plugin/memcached": "3.0.1"
+    "wpackagist-plugin/memcached": "3.0.1",
+    "wpackagist-plugin/user-activation-keys": "4.6"
   },
   "extra": {
     "installer-paths": {
