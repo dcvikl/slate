@@ -20,6 +20,7 @@ logs/*
 !.env.example
 
 # Vendor (e.g. Composer)
+.composer
 vendor/*
 !vendor/.gitkeep
 
