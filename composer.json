@@ -1,9 +1,5 @@
 {
   "name": "pressbooks/slate",
-  "require": {
-    "vlucas/phpdotenv": "^2.0.1",
-    "oscarotero/env": "^1.0"
-  },
   "license": "GPL-2.0+",
   "authors": [
     {
@@ -11,6 +7,19 @@
       "email": "code@pressbooks.com"
     }
   ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^2.0.1",
+    "oscarotero/env": "^1.0",
+    "wpackagist-plugin/akismet": "3.1.11",
+    "wpackagist-plugin/batcache": "1.4",
+    "wpackagist-plugin/memcached": "3.0.1"
+  },
   "extra": {
     "installer-paths": {
       "wordpress/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
