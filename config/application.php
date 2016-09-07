@@ -62,9 +62,15 @@ define('NONCE_SALT', env('NONCE_SALT'));
 define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
+if ( env('EMPTY_TRASH_DAYS') ) {
+    define('EMPTY_TRASH_DAYS', env('EMPTY_TRASH_DAYS'));
+}
 define('FORCE_SSL_ADMIN', true);
 if ( env('WP_DEFAULT_THEME') ) {
     define('WP_DEFAULT_THEME', env('WP_DEFAULT_THEME'));
+}
+if ( env('WP_POST_REVISIONS') ) {
+    define('WP_POST_REVISIONS', env('WP_POST_REVISIONS'));
 }
 /**
  * Pressbooks Settings
