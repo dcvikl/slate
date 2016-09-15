@@ -82,6 +82,9 @@ define('PB_XMLLINT_COMMAND', '/usr/bin/xmllint');
 if ( env('PB_BOOK_THEME') ) {
     define('PB_BOOK_THEME', env('PB_BOOK_THEME'));
 }
+if ( env('PB_HIDE_COVER_PROMO') ) {
+    define('PB_HIDE_COVER_PROMO', env('PB_HIDE_COVER_PROMO'));
+}
 if ( file_exists( $webroot_dir . '/wp-content/themes/private-themes.php' ) ) {
     require_once( $webroot_dir . '/wp-content/themes/private-themes.php' );
 } else {
