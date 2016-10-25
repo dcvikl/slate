@@ -77,13 +77,19 @@ if ( env('WP_POST_REVISIONS') ) {
  */
 define('PB_PRINCE_COMMAND', '/usr/bin/prince');
 define('PB_KINDLEGEN_COMMAND', '/opt/kindlegen/kindlegen');
-define('PB_EPUBCHECK_COMMAND', '/usr/bin/java -jar /opt/epubcheck-3.0.1/epubcheck-3.0.1.jar' );
+define('PB_EPUBCHECK_COMMAND', '/usr/bin/java -jar /opt/epubcheck/epubcheck.jar' );
 define('PB_XMLLINT_COMMAND', '/usr/bin/xmllint');
 if ( env('PB_BOOK_THEME') ) {
     define('PB_BOOK_THEME', env('PB_BOOK_THEME'));
 }
 if ( env('PB_HIDE_COVER_PROMO') ) {
     define('PB_HIDE_COVER_PROMO', env('PB_HIDE_COVER_PROMO'));
+}
+if ( env('PB_PDF_PROFILE') ) {
+    define('PB_PDF_PROFILE', env('PB_PDF_PROFILE'));
+}
+if ( env('PB_PDF_OUTPUT_INTENT') ) {
+    define('PB_PDF_OUTPUT_INTENT', env('PB_PDF_OUTPUT_INTENT'));
 }
 if ( file_exists( $webroot_dir . '/wp-content/themes/private-themes.php' ) ) {
     require_once( $webroot_dir . '/wp-content/themes/private-themes.php' );
