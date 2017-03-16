@@ -2,7 +2,10 @@
   "name": "pressbooks/slate",
   "require": {
     "vlucas/phpdotenv": "^2.0.1",
-    "oscarotero/env": "^1.0"
+    "oscarotero/env": "^1.0",
+    "bight/packetboat": "^1.0",
+    "pressbooks/pressbooks-bisac": "^1.0",
+    "pressbooks/pressbooks-selfe": "^1.0"
   },
   "license": "GPL-2.0+",
   "authors": [
@@ -16,6 +19,12 @@
       "wordpress/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
       "wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
       "wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://repo.packagist.com/pressbooks/"
     }
   }
 }
